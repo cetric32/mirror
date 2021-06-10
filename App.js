@@ -4,7 +4,6 @@ import {Camera} from 'expo-camera';
 
 export default function App() {
   const [hasPermission, setHasPermission] = useState(null);
-  const [type, setType] = useState(Camera.Constants.Type.front);
   const [torchOn, setTorchOn] = useState(Camera.Constants.FlashMode.off);
 
   useEffect(() => {
@@ -22,7 +21,10 @@ export default function App() {
   }
   return (
     <View style={styles.container}>
-      <Camera style={styles.camera} type={type} flashMode={torchOn}>
+      <Camera
+        style={styles.camera}
+        type={Camera.Constants.Type.front}
+        flashMode={torchOn}>
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={styles.button}
